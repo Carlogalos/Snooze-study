@@ -1,11 +1,451 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Snooze Study</title>
+
+    <title>My Personal Website</title>
+
+    <style>
+        /* =========================
+           GENERAL STYLE
+        ========================= */
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+            background: #f1f5f9;
+            color: #333;
+        }
+
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        header {
+            background: linear-gradient(135deg, #1e3a8a, #2563eb);
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+
+        /* =========================
+           NAVIGATION
+        ========================= */
+
+        nav {
+            margin-top: 10px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 0 8px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #bfdbfe;
+        }
+
+        header hr {
+            display: none;
+        }
+
+
+        /* =========================
+           SECTIONS
+        ========================= */
+
+        section {
+            max-width: 900px;
+            margin: 35px auto;
+            padding: 40px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        section h2 {
+            color: #1e3a8a;
+            font-size: 28px;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #2563eb;
+            padding-bottom: 10px;
+        }
+
+        section h3 {
+            color: #2563eb;
+            margin-bottom: 10px;
+        }
+
+        section p {
+            margin-bottom: 15px;
+        }
+
+        section hr {
+            border: none;
+            height: 1px;
+            background: #ddd;
+            margin-top: 30px;
+        }
+
+
+        /* =========================
+           HOME
+        ========================= */
+
+        #home {
+            text-align: center;
+            padding: 80px 40px;
+            background: linear-gradient(135deg, #ffffff, #eff6ff);
+        }
+
+        #home h2 {
+            border: none;
+            color: #2563eb;
+        }
+
+        #home h1 {
+            color: #1e3a8a;
+            font-size: 45px;
+            margin-bottom: 20px;
+        }
+
+        #home p {
+            max-width: 700px;
+            margin: auto;
+            font-size: 18px;
+        }
+
+
+        /* =========================
+           ABOUT
+        ========================= */
+
+        #about {
+            border-left: 6px solid #2563eb;
+        }
+
+
+        /* =========================
+           SKILLS
+        ========================= */
+
+        #skills ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        #skills li {
+            background: #eff6ff;
+            padding: 15px;
+            border-left: 5px solid #2563eb;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        #skills li:hover {
+            background: #dbeafe;
+            transform: translateX(8px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+
+
+        /* =========================
+           EDUCATION
+        ========================= */
+
+        #education {
+            border-left: 6px solid #1e3a8a;
+        }
+
+
+        /* =========================
+           HOBBIES
+        ========================= */
+
+        #hobbies ul {
+            list-style: none;
+        }
+
+        #hobbies li {
+            background: #f8fafc;
+            margin: 10px 0;
+            padding: 12px 18px;
+            border-radius: 8px;
+            border-left: 4px solid #2563eb;
+            transition: 0.3s;
+        }
+
+        #hobbies li:hover {
+            background: #dbeafe;
+            transform: translateX(5px);
+        }
+
+
+        /* =========================
+           CONTACT
+        ========================= */
+
+        #contact p {
+            background: #f8fafc;
+            padding: 12px;
+            border-radius: 7px;
+            margin-bottom: 10px;
+        }
+
+        #contact a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        #contact a:hover {
+            text-decoration: underline;
+            color: #1e3a8a;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: #1e3a8a;
+            color: white;
+            text-align: center;
+            padding: 25px;
+            margin-top: 50px;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+
+        /* =========================
+           MOBILE RESPONSIVE
+        ========================= */
+
+        @media (max-width: 700px) {
+
+            header {
+                padding: 20px 10px;
+            }
+
+            header h1 {
+                font-size: 25px;
+            }
+
+            nav a {
+                display: inline-block;
+                margin: 5px;
+                font-size: 14px;
+            }
+
+            section {
+                margin: 20px 10px;
+                padding: 25px;
+            }
+
+            #home {
+                padding: 50px 20px;
+            }
+
+            #home h1 {
+                font-size: 32px;
+            }
+
+            #home p {
+                font-size: 16px;
+            }
+
+            #skills ul {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+
 </head>
+
+
 <body>
-    <p>Snooze Study System</p>
+
+    <!-- Header -->
+    <header>
+
+        <h1>My Personal Website</h1>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About Me</a>
+            <a href="#skills">Skills</a>
+            <a href="#education">Education</a>
+            <a href="#hobbies">Hobbies</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+    </header>
+
+
+    <!-- Home -->
+    <section id="home">
+
+        <h2>Welcome!</h2>
+
+        <h1>Hello, I'm Carlo Jay</h1>
+
+        <p>
+            Welcome to my personal website. This website contains
+            information about me, my skills, education, hobbies,
+            and contact details.
+        </p>
+
+    </section>
+
+
+    <!-- About Me -->
+    <section id="about">
+
+        <h2>About Me</h2>
+
+        <p>
+            Hello! My name is <strong>Carlo Jay</strong>.
+            I am an Information Technology student who is interested
+            in computers, programming, web development, and technology.
+        </p>
+
+        <p>
+            I enjoy learning new programming languages and creating
+            simple websites and computer systems.
+        </p>
+
+    </section>
+
+
+    <!-- Skills -->
+    <section id="skills">
+
+        <h2>My Skills</h2>
+
+        <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>PHP</li>
+            <li>MySQL</li>
+            <li>Python</li>
+            <li>Computer Troubleshooting</li>
+            <li>Basic Web Development</li>
+        </ul>
+
+    </section>
+
+
+    <!-- Education -->
+    <section id="education">
+
+        <h2>Education</h2>
+
+        <h3>Bachelor of Science in Information Technology</h3>
+
+        <p>
+            <strong>Eastern Visayas State University</strong>
+        </p>
+
+        <p>
+            I am currently studying Information Technology and
+            developing my skills in programming, databases,
+            basic web development.
+        </p>
+
+    </section>
+
+
+    <!-- Hobbies -->
+    <section id="hobbies">
+
+        <h2>My Hobbies</h2>
+
+        <ul>
+            <li>Programming</li>
+            <li>Learning new technologies</li>
+            <li>Watching movies</li>
+            <li>Listening to music</li>
+        </ul>
+
+    </section>
+
+
+    <!-- Contact -->
+    <section id="contact">
+
+        <h2>Contact Me</h2>
+
+        <p>
+            <strong>Name:</strong> Carlo Jay D Galos
+        </p>
+
+        <p>
+            <strong>Email:</strong> your-galocarlojay@gmail.com
+        </p>
+
+        <p>
+            <strong>Phone:</strong> +63 09120 986 603
+        </p>
+
+        <p>
+            <strong>Facebook:</strong>
+            <a href="https://www.facebook.com/" target="_blank">
+                My Facebook
+            </a>
+        </p>
+
+        <p>
+            <strong>GitHub:</strong>
+            <a href="https://github.com/" target="_blank">
+                My GitHub
+            </a>
+        </p>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <p>
+            &copy; 2026 Carlo Jay. All Rights Reserved.
+        </p>
+
+    </footer>
+
 </body>
+
 </html>
